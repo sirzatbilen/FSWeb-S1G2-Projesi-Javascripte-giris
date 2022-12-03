@@ -19,6 +19,12 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let surucuYasi = 18;
+if(surucuYasi>=18){
+  console.log(true)
+}else{
+  console.log(false)
+}
 
 
 
@@ -33,6 +39,12 @@ Aşağıdakileri yapınız:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
+let birinciDeger = 5;
+let ikinciDegeri = 3;
+if(birinciDeger===ikinciDegeri){
+  birinciDeger = 3
+}
+console.log(birinciDeger);
 
 
 
@@ -48,6 +60,10 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
+let a = '1999';
+let b = Number(a);
+console.log(b)
+console.log(a)
 
 
 
@@ -61,10 +77,10 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(a,b){
+  return a*b;
 }
-
+console.log(carpma(5,4))
 
 
 
@@ -77,12 +93,10 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function kopeginYasi (insanYasi){
+  return insanYasi*7
 }
-
-
-
+console.log(kopeginYasi(5))
 /* Görev 3 */
 
 // Taş, Kağıt, Makas oyununu bilgisayara karşı oynayalım!
@@ -104,9 +118,41 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
 
-function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+function oyun(oyuncu,bilgisayar){
+  if((oyuncu === 'Taş')||(oyuncu === 'Kağıt')||(oyuncu === 'Makas')&&(bilgisayar === 'Taş')||(bilgisayar === 'Kağıt')||(bilgisayar === 'Makas')){
+    if(oyuncu === bilgisayar){
+      let sonuc = 'Beraberlik';
+      return sonuc;
+    }else if((oyuncu === 'Kağıt')&&(bilgisayar === 'Taş')||(oyuncu === 'Makas')&&(bilgisayar === 'Kağıt')||(oyuncu ==='Taş')&&(bilgisayar === 'Makas')){
+      let sonuc = 'Kazandın!';
+      return sonuc;
+    }else {
+      let sonuc = 'Kaybettin!';
+      return sonuc;
+    }
+    
+  }
+else {
+      console.log('Yazım kurllarına uymadığı için teste devam edemezsiniz')
+    }
 }
+let bilgisayar = bilgisayarSecimi()
+
+function bilgisayarSecimi (){
+  let bilgisayarRandom = Math.ceil(Math.random()*3)
+  let bilgisayarDurumu;
+  if(bilgisayarRandom === 1){
+    bilgisayarDurumu = 'Taş';
+  }else if(bilgisayarRandom === 2){
+    bilgisayarDurumu = 'Makas';
+  }else{
+    bilgisayarDurumu = 'Kağıt';
+  }
+  return bilgisayarDurumu;
+  
+}
+let oyuncu = 'Taş'
+console.log(oyun(oyuncu,bilgisayar))
 
 
 
@@ -120,9 +166,10 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+  return km*0.621371
 }
+console.log(milDonusturucu(5))
 
 
 
@@ -134,9 +181,10 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  return cm/30.48;
 }
+console.log(feetDonusturucu(5))
 
 
 
@@ -153,8 +201,12 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(x){
+  return `${x} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`
+}
+let y = 5;
+for(let i=y;i>0;i--){
+  console.log(cocukSarkisi(i))
 }
 
 
@@ -173,10 +225,21 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
+function notHesapla(not){
+let sonuc;
+if(not>=90 && not<=100){
+  return sonuc = 'A aldın';
+}else if (not>=80 && not<90){
+  return sonuc = 'B aldın';
+}else if (not>=70 && not<80){
+  return sonuc = 'C aldın';
+}else if (not>=60 && not<70){
+  return sonuc = 'D aldın';
+}else {
+  return sonuc = 'F aldın';
 }
-
+}
+console.log(notHesapla(83))
 
 
 /* Bonus Çalışma: Sesli harf sayacı - Kaç tane sesli harf var? */
